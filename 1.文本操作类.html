@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>文本操作类</title>
+    <script src="node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <!--{{}} 文本插值-->
+    <p>{{message}}1</p>
+    <!--v-text 赋值给textContent-->
+    <p v-text="message">1</p>
+    <!--v-html 展示html代码-->
+    <p v-html="html"></p>
+    <!--v-bind :缩写 单向数据绑定 属性绑定-->
+    <p :id="box"></p>
+    <!--v-model 双向数据绑定-->
+    <input type="text" v-model="username">
+</div>
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+            message:'Hello,Vue.js',
+            html:`<h1>我是一段HTML</h1>`,
+            username:'我是一个input标签'
+        }
+    })
+</script>
+</body>
+</html>
