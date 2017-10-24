@@ -231,3 +231,48 @@
 
 ***
 
+### 其他类
+
+##### 包括v-pre v-once v-cloak
+
+```
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>其他类</title>
+    <style>
+        [v-cloak]{
+            display: none;
+        }
+    </style>
+    <script src="node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <!--v-pre 不需要写=号后面的内容 表示跳过此部分不进行编译,有利于优化-->
+    <p v-pre>{{message}}</p>
+    <!--v-once 不需要写=号后面的内容 表示只进行一次赋值 即使更改message也不会改变内容-->
+    <p v-once>{{message}}</p>
+    <!--v-cloak 不需要写=号后面的内容-->
+    <!--使用css属性display来隐藏为编译完成之前的内容,这样就不会把编译的过程展现在界面上,
+       适用于比较大的数据加载时使用-->
+    <p v-cloak>{{message}}</p>
+</div>
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+           message:'Hello Vue.js'
+        }
+    })
+</script>
+</body>
+</html>
+```
+
+***
+
