@@ -16,8 +16,8 @@
     <div v-for="(val, key, index) in array">{{val}}:{{key}}:{{index}}</div>
     <!--栗子:购物车或者列表排序-->
     <div v-for="item in array" :key="item.id">
-        <a :href="item.url"></a>
-        <img :title="item.title" :src="item.image" alt="">
+        <a :href="item.url"> <img :title="item.title" :src="item.image" alt=""></a>
+
     </div>
 </div>
 </body>
