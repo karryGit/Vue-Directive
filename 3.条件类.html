@@ -6,11 +6,49 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>条件类</title>
+    <script src="node_modules/vue/dist/vue.js"></script>
 </head>
 <body>
-<!--v-if if判断-->
-<!--v-else-if-->
-<!--v-else-->
-<!--v-show 切换标签的 display-->
+
+
+<div id="app">
+    <!--v-if if判断 为false时不创建节点 为true时创建dom节点-->
+    <p v-if="false">我是一段显示内容</p>
+    <p v-if="isIf">我是一段显示内容</p>
+    <!--v-else-if 表示 v-if 的 “else if 块”。可以链式调用。-->
+    <div v-if="type === 'A'">
+        A
+    </div>
+    <div v-else-if="type === 'B'">
+        B
+    </div>
+    <div v-else-if="type === 'C'">
+        C
+    </div>
+    <!--v-else-->
+    <div v-else>
+        Not A/B/C
+    </div>
+    <!--v-show 切换标签的 display 与if不同的是if是创建和移除节点操作,而show是切换css的display属性为none-->
+    <p v-show="isShow">我是一段isShow</p>
+    <button @click="clicked">按钮</button>
+</div>
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+            type:'B',
+            isIf:true,
+            isShow:true
+        },
+        methods:{
+            clicked:function () {
+                this.isShow = !this.isShow;
+                this.type = 'C';
+                this.isIf = !this.isIf;
+            }
+        }
+    })
+</script>
 </body>
 </html>
